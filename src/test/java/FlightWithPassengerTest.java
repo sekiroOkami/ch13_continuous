@@ -30,4 +30,16 @@ public class FlightWithPassengerTest {
                 () -> flight.addPassenger(ps2)
         );
     }
+
+    @Test
+    void testPassengerJoinsFlight() {
+        var passenger = new Passenger("123-456-7890","JM","US");
+        var flight = new Flight("AA123", 100);
+
+        passenger.joinFlight(flight);
+        assertEquals(flight, passenger.getFlight());
+        assertEquals(1, flight.getNumberOfPassengers());
+    }
+
+
 }
